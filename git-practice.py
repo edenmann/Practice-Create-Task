@@ -1,12 +1,4 @@
-toDoList = ["Math Homework", "Cook Dinner", "Fold Laundry"]
+first = "Eden"
+last = "Bashan"
 
-def addItem(item):
-   toDoList.append(item)
-   return toDoList
-
-userAns = input("Do you want to add to your list or quit? A/Q")
-while userAns == "A":
-   item = input("What item do you want to add?")
-   addItem(item)
-   userAns = input("Do you want to add to your list or quit? A/Q")
-print(toDoList)
+print("My name is", first, last)
