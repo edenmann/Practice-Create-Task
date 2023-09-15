@@ -41,4 +41,4 @@ def battle(c1, c2):
     print("Available Actions: attack, special, block")
     while game_status == True:
         while c1[1] > 0 and c2[1] > 0:
-        p1 = input()
+        p1 = input("What would you like to do? (options: attack, special, block)")
