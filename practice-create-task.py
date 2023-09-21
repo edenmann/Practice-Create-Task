@@ -37,38 +37,47 @@ def pick_creature(player):
     c1 = pick_creature(1)
     c2 = pick_creature(2)
 
-def turns(player):
+def turns(player, choice):
+    if player == 1:
+        creature = c1
+        enemy = c2
+    elif player == 2:
+        creature = c2
+        enemy = c1
+
+    # vulnerability properties
+    if creature[3] == enemy[4]:
+        damage = creature[2] * 1.2
+    else:
+        damage = creature[2]
+
     # attack
-    if p1 == "attack":
-        c2[1] -= damage1
-        print(c2[0], "takes", str(damage1), "damage")
+    if choice == "attack":
+        enemy[1] -= damage
+    # special
+    elif choice == "special":
+        enemy[1] -= damage * 2
+    # block
+    elif choice == "block":
+        creature[1] = creature[1]
+
+    print(enemy[0], "takes", str(damage), "damage")
+    return enemy
+        
 
 def battle(c1, c2):
     print(c1[0], "(Player 1) is fighting", c2[0], "(Player 2).")
     print("Available Actions: attack, special, block")
     print("special has 2 uses but does 2x normal damage")
 
-# vulnerability properties
-    if c1[4] == c2[3]:
-        damage1 = c1[2] * 1.2
-    else:
-        damage1 = c1[2]
-    if c2[4] == c1[3]:
-        damage2 = c2[2] * 1.2
-    else:
-        damage2 = c2[2]
 
-    while game_status == True:
-        while c1[1] > 0 and c2[1] > 0:
-            p1 = input("What would you like to do? (options: attack, special, block)")
-            if p1 == "attack":
-                c2[1] -= damage1
-                print(c2[0], "takes", str(damage1), "damage")
-            elif p1 == "special":
-                c2[1] -= damage1 * 2
-                print(c2[0], "takes", str(damage1 * 2), "damage")
-            
 
+    while c1[1] > 0 and c2[1] > 0:
+        p1 = input("What would you like to do? (options: attack, special, block)")
+        p2 = input("What would you like to do? (options: attack, special, block)")
+
+            c2 = turns(1, p1)
+            c1 = turns(2, p2)
 
             print("STATUS:")
             print("player 1 health -", str(c1[1]))
