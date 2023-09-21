@@ -60,6 +60,8 @@ def turns(player, choice):
     # block
     elif choice == "block":
         creature[1] = creature[1]
+        blocked = True
+        return blocked
 
     print(enemy[0], "takes", str(damage), "damage")
     return enemy
@@ -76,8 +78,8 @@ def battle(c1, c2):
         p1 = input("What would you like to do? (options: attack, special, block)")
         p2 = input("What would you like to do? (options: attack, special, block)")
 
-            c2 = turns(1, p1)
-            c1 = turns(2, p2)
+        c2 = turns(1, p1)
+        c1 = turns(2, p2)
 
             print("STATUS:")
             print("player 1 health -", str(c1[1]))
