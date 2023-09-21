@@ -81,6 +81,6 @@ def battle(c1, c2):
         c2 = turns(1, p1)
         c1 = turns(2, p2)
 
-            print("STATUS:")
-            print("player 1 health -", str(c1[1]))
-            print("player 2 health -", str(c2[1]))
+        print("STATUS:")
+        print("player 1 health -", str(c1[1]))
+        print("player 2 health -", str(c2[1]))
